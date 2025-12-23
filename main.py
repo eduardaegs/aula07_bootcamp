@@ -1,11 +1,8 @@
-basket1: list = ['banana', 'kiwifruits', 'grapefruits', 'apples', 'apricots', 'nectarines', 'oranges', 'peaches', 'pears', 'lemons']
+from etl import extract_data, produtos_entregues, somar_valores
 
-basket2: list = ['grapes', 'dragonfruits', 'limes', 'papaya']
+path_arquivo = 'vendas.csv'
 
-# Transfer fruits from basket1 to basket2
-while len(basket1) > len(basket2):
-    item_to_transfer = basket1.pop()
-    basket2.append(item_to_transfer)
-
-print('Basket 1: ' + str(basket1))
-print('Basket 2: ' + str(basket2))
+lista_de_produtos = extract_data(path_arquivo)
+produtos = produtos_entregues(lista_de_produtos)
+valor = somar_valores(produtos)
+print(valor)

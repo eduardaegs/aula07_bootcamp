@@ -1,8 +1,8 @@
-def soma_valores(valor_1, valor_2):
-    valor_3 = valor_1 + valor_2  
-    return valor_3
+from etl import extract_data, produtos_entregues, somar_valores
 
-primeiro_valor = 5
-segundo_valor = 10
+path_arquivo = 'vendas.csv'
 
-soma_valores(5, 10)
+lista_de_produtos = extract_data(path_arquivo)
+produtos = produtos_entregues(lista_de_produtos)
+valor = somar_valores(produtos)
+print(valor)
